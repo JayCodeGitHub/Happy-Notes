@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './assets/styles/index.css'
+import './index.css'
 import Root from './views/Root'
 import AppProviders from './providers/AppProviders'
 
