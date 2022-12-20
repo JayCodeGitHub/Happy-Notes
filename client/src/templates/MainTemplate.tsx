@@ -1,11 +1,11 @@
 import React from 'react'
 import Navigation from '../components/Navigation/Navigation'
 
-interface AppProvidersProps {
+interface MainTemplateProps {
   children: React.ReactNode
 }
 
-const AppProviders = ({ children }: AppProvidersProps) => {
+const MainTemplate = ({ children }: MainTemplateProps) => {
   return (
     <>
       <Navigation />
@@ -14,4 +14,4 @@ const AppProviders = ({ children }: AppProvidersProps) => {
   )
 }
 
-export default AppProviders
+export default MainTemplate
