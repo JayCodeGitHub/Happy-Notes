@@ -1,27 +1,17 @@
 import React from 'react'
-import logo from '../assets/icons/logo.svg'
-import '../assets/styles/App.css'
+import { Navigate, Route, Routes } from 'react-router-dom'
+import Notes from './Notes'
+import ToDo from './ToDo'
+import Sites from './Sites'
 
 function Root() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload. erkh er hbert h erth ert h ert her h
-          hreh re hre h re h er h erh erh re h re h reh er her h h er h reh er h erh re reh erh er h
-          reh er h er h
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='/' element={<Navigate to='/notes' />} />
+      <Route path='/notes' element={<Notes />} />
+      <Route path='/todo' element={<ToDo />} />
+      <Route path='/sites' element={<Sites />} />
+    </Routes>
   )
 }
 
