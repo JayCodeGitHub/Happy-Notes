@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Card from '../components/Card/Card'
+import Form from '../components/Form/Form'
 
 function Notes() {
   const [notes, setNotes] = useState([
@@ -20,6 +21,7 @@ function Notes() {
       {notes.map(({ id, title, body }) => (
         <Card title={title} body={body} type='note' key={id} />
       ))}
+      <Form />
     </div>
   )
 }
