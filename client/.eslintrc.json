@@ -27,7 +27,7 @@
         "camelcase": "error",
         "spaced-comment": "off",
         "quotes": ["error", "single"],
-        "no-duplicate-imports": "error",
+        "no-duplicate-imports": "off",
         "no-undef": "off"
     }
 }
