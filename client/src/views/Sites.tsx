@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Card from '../components/Card/Card'
-import Form from '../components/FormSection/FormSection'
 
 function Sites() {
   const [sites, setSites] = useState([
@@ -14,13 +13,11 @@ function Sites() {
     },
   ])
   return (
-    <div>
-      <h1 className='text-3xl font-bold underline text-red-500'>Sites</h1>
+    <>
       {sites.map(({ id, title }) => (
         <Card title={title} type='site' key={id} />
       ))}
-      <Form type={'site'} items={sites} setItems={setSites} />
-    </div>
+    </>
   )
 }
 
