@@ -1,22 +1,15 @@
 import React, { useState } from 'react'
 import Card from '../components/Card/Card'
+import AddNewItem from '../components/AddNewItem/AddNewItem'
 
 function Sites() {
-  const [sites, setSites] = useState([
-    {
-      id: 1,
-      title: 'https://www.facebook.com/',
-    },
-    {
-      id: 2,
-      title: 'https://www.instagram.com/',
-    },
-  ])
+  const [sites, setSites] = useState([])
   return (
     <>
       {sites.map(({ id, title }) => (
         <Card title={title} type='site' key={id} />
       ))}
+      <AddNewItem items={sites} setItems={setSites} type='site' />
     </>
   )
 }
