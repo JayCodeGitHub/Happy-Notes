@@ -6,6 +6,14 @@ interface IAddNoteAction {
   body: string
 }
 
+interface IAddToDoAction {
+  type: 'addtodo'
+  itemType: string
+  _id: string
+  title: string
+  body: string
+}
+
 interface IAddSiteAction {
   type: 'addsite'
   itemType: string
@@ -14,4 +22,4 @@ interface IAddSiteAction {
   body: string
 }
 
-export type Action = IAddNoteAction | IAddSiteAction
+export type Action = IAddNoteAction | IAddSiteAction | IAddToDoAction

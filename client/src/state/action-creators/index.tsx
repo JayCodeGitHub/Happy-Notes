@@ -22,3 +22,14 @@ export const addsite = (title: string, itemType: string, body?: string) => {
     })
   }
 }
+
+export const addtodo = (title: string, itemType: string, body?: string) => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.ADDTODO,
+      itemType,
+      title,
+      body,
+    })
+  }
+}

@@ -3,19 +3,24 @@ import { Action } from '../actions'
 const initialState = {
   todos: [
     {
-      creator: '',
       title: '',
-      type: '',
+      body: '',
       _id: '',
-      _v: '',
+      itemType: 'todo',
     },
   ],
 }
 
 const ToDoReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addnote':
-      return console.log(action), state
+    case 'addtodo':
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          { title: action.title, body: action.body, _id: action.title, itemType: action.itemType },
+        ],
+      }
     default:
       return state
   }
