@@ -1,5 +1,8 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state'
 
 interface FormProps {
   items: any
@@ -10,6 +13,8 @@ interface FormProps {
 }
 
 function FormSection({ items, setItems, type, isVisible, setIsVisible }: FormProps) {
+  const dispatch = useDispatch()
+  const { addnote } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
       {isVisible ? (
@@ -22,6 +27,7 @@ function FormSection({ items, setItems, type, isVisible, setIsVisible }: FormPro
                 body: formObj.body,
               }
               setItems([...items, newNote])
+              addnote(formObj.title, type, formObj.body)
               formObj.title = ''
               formObj.body = ''
               setIsVisible(false)
