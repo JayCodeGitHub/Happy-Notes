@@ -16,7 +16,7 @@ function Notes() {
       {state.notes.map(({ title, body }) => (
         <Card title={title} body={body} type='note' key={title} />
       ))}
-      <AddNewItem items={notes} setItems={setNotes} type='note' />
+      <AddNewItem items={notes} setItems={addnote} type='note' />
     </>
   )
 }

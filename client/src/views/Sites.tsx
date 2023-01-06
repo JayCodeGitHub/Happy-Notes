@@ -17,7 +17,7 @@ function Sites() {
       {state.sites.map(({ title }) => (
         <Card title={title} type='site' key={title} />
       ))}
-      <AddNewItem items={sites} setItems={setSites} type='site' />
+      <AddNewItem items={sites} setItems={addsite} type='site' />
     </>
   )
 }

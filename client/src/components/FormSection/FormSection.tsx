@@ -21,13 +21,7 @@ function FormSection({ items, setItems, type, isVisible, setIsVisible }: FormPro
         <div className='w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:bg-gray-800 bg-gray-200 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center'>
           <Form
             onSubmit={(formObj) => {
-              const newNote = {
-                id: formObj.title,
-                title: formObj.title,
-                body: formObj.body,
-              }
-              setItems([...items, newNote])
-              addnote(formObj.title, type, formObj.body)
+              setItems(formObj.title, type, formObj.body)
               formObj.title = ''
               formObj.body = ''
               setIsVisible(false)
