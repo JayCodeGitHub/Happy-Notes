@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Card from '../components/Card/Card'
@@ -7,7 +7,6 @@ import { State } from '../state/index'
 import { actionCreators } from '../state'
 
 function Notes() {
-  const [notes, setNotes] = useState([])
   const dispatch = useDispatch()
   const state = useSelector((state: State) => state.notes)
   const { addnote } = bindActionCreators(actionCreators, dispatch)
@@ -16,7 +15,7 @@ function Notes() {
       {state.notes.map(({ title, body }) => (
         <Card title={title} body={body} type='note' key={title} />
       ))}
-      <AddNewItem items={notes} setItems={addnote} type='note' />
+      <AddNewItem setItems={addnote} type='note' />
     </>
   )
 }

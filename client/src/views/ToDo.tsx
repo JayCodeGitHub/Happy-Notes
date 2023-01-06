@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Card from '../components/Card/Card'
@@ -7,7 +7,6 @@ import { State } from '../state/index'
 import { actionCreators } from '../state'
 
 function ToDo() {
-  const [todos, setTodos] = useState([])
   const dispatch = useDispatch()
   const state = useSelector((state: State) => state.todos)
   const { addtodo } = bindActionCreators(actionCreators, dispatch)
@@ -16,7 +15,7 @@ function ToDo() {
       {state.todos.map(({ title }) => (
         <Card title={title} type='todo' key={title} />
       ))}
-      <AddNewItem items={todos} setItems={addtodo} type='todo' />
+      <AddNewItem setItems={addtodo} type='todo' />
     </>
   )
 }

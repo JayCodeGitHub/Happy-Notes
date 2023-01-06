@@ -1,20 +1,14 @@
 import React from 'react'
 import { Form, Field } from 'react-final-form'
-import { useDispatch } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { actionCreators } from '../../state'
 
 interface FormProps {
-  items: any
   setItems: any
   type: string
   isVisible: boolean
   setIsVisible: any
 }
 
-function FormSection({ items, setItems, type, isVisible, setIsVisible }: FormProps) {
-  const dispatch = useDispatch()
-  const { addnote } = bindActionCreators(actionCreators, dispatch)
+function FormSection({ setItems, type, isVisible, setIsVisible }: FormProps) {
   return (
     <>
       {isVisible ? (
