@@ -1,4 +1,5 @@
 import { Action } from '../actions'
+import { ActionType } from '../action-types'
 
 const initialState = {
   todos: [
@@ -13,7 +14,7 @@ const initialState = {
 
 const ToDoReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addtodo':
+    case ActionType.ADDTODO:
       return {
         ...state,
         todos: [

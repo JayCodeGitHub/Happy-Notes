@@ -1,4 +1,5 @@
 import { Action } from '../actions'
+import { ActionType } from '../action-types'
 
 const initialState = {
   sites: [
@@ -13,7 +14,7 @@ const initialState = {
 
 const SitesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addsite':
+    case ActionType.ADDSITE:
       return {
         ...state,
         sites: [

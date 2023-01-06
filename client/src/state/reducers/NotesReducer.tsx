@@ -1,4 +1,5 @@
 import { Action } from '../actions'
+import { ActionType } from '../action-types'
 
 const initialState = {
   notes: [
@@ -13,7 +14,7 @@ const initialState = {
 
 const NotesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addnote':
+    case ActionType.ADDNOTE:
       return {
         ...state,
         notes: [
