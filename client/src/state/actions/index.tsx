@@ -6,35 +6,12 @@ interface IAddNoteAction {
   body: string
 }
 
-interface IRemoveItemAction {
-  type: 'removeitem'
+interface IAddSiteAction {
+  type: 'addsite'
+  itemType: string
   _id: string
-  itemType: string
-  payload: Array<{
-    itemType: string
-    _id: string
-    title: string
-    body?: string
-  }>
+  title: string
+  body: string
 }
 
-interface IFetchItemsAction {
-  type: 'fetchitems'
-  itemType: string
-  items: Array<{
-    _id: string
-    title: string
-    body: string
-    creator: string
-    type: string
-    _v: string
-  }>
-  payload: Array<{
-    itemType: string
-    _id: string
-    title: string
-    body?: string
-  }>
-}
-
-export type Action = IAddNoteAction | IRemoveItemAction | IFetchItemsAction
+export type Action = IAddNoteAction | IAddSiteAction

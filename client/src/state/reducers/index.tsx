@@ -6,7 +6,7 @@ import sidesReducer from './SitesReducer'
 const reducers = combineReducers({
   notes: notesReducer,
   todos: todoReducer,
-  sides: sidesReducer,
+  sites: sidesReducer,
 })
 
 export default reducers

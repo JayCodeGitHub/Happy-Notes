@@ -1,21 +1,26 @@
 import { Action } from '../actions'
 
 const initialState = {
-  sides: [
+  sites: [
     {
-      creator: '',
       title: '',
-      type: '',
+      body: '',
       _id: '',
-      _v: '',
+      itemType: 'site',
     },
   ],
 }
 
 const SitesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case 'addnote':
-      return console.log(action), state
+    case 'addsite':
+      return {
+        ...state,
+        sites: [
+          ...state.sites,
+          { title: action.title, body: action.body, _id: action.title, itemType: action.itemType },
+        ],
+      }
     default:
       return state
   }
