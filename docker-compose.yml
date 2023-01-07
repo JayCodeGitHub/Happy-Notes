@@ -10,3 +10,4 @@ services:
       - "./client:/app"
       - "./client/node_modules:/src/node_modules"
     stdin_open: true
+  
