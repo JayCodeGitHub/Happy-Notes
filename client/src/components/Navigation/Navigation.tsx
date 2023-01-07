@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import NavLink from '../NavLink/NavLink'
 import Hamburger from '../Hamburger/Hamburger'
 import MobileMenu from '../MobileMenu/MobileMenu'
-import { useHamburger } from '../../hooks/useHamburger/useHamburger'
+import { useHamburger } from '../../hooks/useHamburger'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
+import DarkModeToggle from '../../DarkModeToggle/DarkModeToggle'
 
 function Navigation() {
   const { isOpen, toggleNavigation, setIsOpenFalse } = useHamburger()
@@ -30,6 +31,11 @@ function Navigation() {
             <Hamburger isOpen={isOpen} toggleNavigation={toggleNavigation} />
           </div>
           <MobileMenu isOpen={isOpen} setIsOpenFalse={setIsOpenFalse} />
+        </div>
+        <div className='md:flex hidden h-full'>
+          <div className=' w-1/2 h-full flex items-center justify-center'>
+            <DarkModeToggle />
+          </div>
         </div>
       </div>
     </div>
