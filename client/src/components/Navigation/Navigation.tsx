@@ -5,7 +5,7 @@ import Hamburger from '../Hamburger/Hamburger'
 import MobileMenu from '../MobileMenu/MobileMenu'
 import { useHamburger } from '../../hooks/useHamburger'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
-import DarkModeToggle from '../../DarkModeToggle/DarkModeToggle'
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 
 function Navigation() {
   const { isOpen, toggleNavigation, setIsOpenFalse } = useHamburger()

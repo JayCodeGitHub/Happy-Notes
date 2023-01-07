@@ -2,6 +2,7 @@ import React from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import NavLink from '../NavLink/NavLink'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
+import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 
 const variants = {
   open: { x: 0, display: 'flex' },
@@ -35,6 +36,11 @@ function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {
             {item.name}
           </NavLink>
         ))}
+      </div>
+      <div>
+        <div className=' w-full h-28 flex items-center justify-center'>
+          <DarkModeToggle />
+        </div>
       </div>
     </motion.div>
   )
