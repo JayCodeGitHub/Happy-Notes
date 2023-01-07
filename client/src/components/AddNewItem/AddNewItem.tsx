@@ -3,7 +3,7 @@ import AddIcon from '../../assets/icons/plus.svg'
 import FormSection from '../FormSection/FormSection'
 
 interface AddNewItemProps {
-  setItems: any
+  setItems: (title: string, type: string, body: string) => void
   type: string
 }
 
