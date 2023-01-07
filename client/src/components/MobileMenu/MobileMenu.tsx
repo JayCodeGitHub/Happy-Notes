@@ -10,7 +10,7 @@ const variants = {
 
 interface MobileMenuProps {
   isOpen: boolean
-  setIsOpenFalse: any
+  setIsOpenFalse: () => void
 }
 
 function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {

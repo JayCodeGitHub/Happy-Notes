@@ -2,10 +2,10 @@ import React from 'react'
 import { Form, Field } from 'react-final-form'
 
 interface FormProps {
-  setItems: any
+  setItems: (title: string, type: string, body: string) => void
   type: string
   isVisible: boolean
-  setIsVisible: any
+  setIsVisible: (IsVisible: boolean) => void
 }
 
 function FormSection({ setItems, type, isVisible, setIsVisible }: FormProps) {

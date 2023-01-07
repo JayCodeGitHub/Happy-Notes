@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 
 interface HamburgerProps {
   isOpen: boolean
-  toggleNavigation: any
+  toggleNavigation: () => void
 }
 
 function Hamburger({ isOpen, toggleNavigation }: HamburgerProps) {
