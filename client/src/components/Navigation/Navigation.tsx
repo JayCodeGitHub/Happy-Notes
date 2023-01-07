@@ -4,12 +4,7 @@ import NavLink from '../NavLink/NavLink'
 import Hamburger from '../Hamburger/Hamburger'
 import MobileMenu from '../MobileMenu/MobileMenu'
 import { useHamburger } from '../../hooks/useHamburger/useHamburger'
-
-const menuItems = [
-  { name: 'Notes', href: '/notes' },
-  { name: 'Todos', href: '/todo' },
-  { name: 'Sites', href: '/sites' },
-]
+import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 
 function Navigation() {
   const { isOpen, toggleNavigation, setIsOpenFalse } = useHamburger()
@@ -24,7 +19,7 @@ function Navigation() {
       </div>
       <div className=' flex justify-center items-center'>
         <div className='hidden md:flex md:justify-between md:w-80 md:mx-8'>
-          {menuItems.map((item) => (
+          {NavigationItems.map((item) => (
             <NavLink to={item.href} key={item.name}>
               {item.name}
             </NavLink>

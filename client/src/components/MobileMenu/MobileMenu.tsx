@@ -1,12 +1,7 @@
 import React from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import NavLink from '../NavLink/NavLink'
-
-const menuItems = [
-  { name: 'Notes', href: '/Notes' },
-  { name: 'Todos', href: '/Todo' },
-  { name: 'Sides', href: '/Sides' },
-]
+import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 
 const variants = {
   open: { x: 0, display: 'flex' },
@@ -35,7 +30,7 @@ function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {
       className='absolute right-0 top-0 w-3/5 h-full dark:bg-gray-800 bg-white z-10 pt-40 flex flex-col justify-between border-l-2 dark:border-white border-black'
     >
       <div className='w-full h-48 flex flex-col items-center justify-around'>
-        {menuItems.map((item) => (
+        {NavigationItems.map((item) => (
           <NavLink to={item.href} key={item.name} onClick={setIsOpenFalse}>
             {item.name}
           </NavLink>
