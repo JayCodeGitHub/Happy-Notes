@@ -9,13 +9,13 @@ import { actionCreators } from '../state'
 function ToDo() {
   const dispatch = useDispatch()
   const state = useSelector((state: State) => state.todos)
-  const { addtodo } = bindActionCreators(actionCreators, dispatch)
+  const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
       {state.todos.map(({ title }) => (
-        <Card title={title} type='todo' key={title} />
+        <Card title={title} type='todos' key={title} />
       ))}
-      <AddNewItem setItems={addtodo} type='todo' />
+      <AddNewItem setItems={additem} type='todos' />
     </>
   )
 }

@@ -35,7 +35,7 @@ function FormSection({ setItems, type, isVisible, setIsVisible }: FormProps) {
                     />
                   )}
                 </Field>
-                {type === 'note' ? (
+                {type === 'notes' ? (
                   <Field name='body'>
                     {({ input }) => (
                       <textarea
@@ -47,7 +47,7 @@ function FormSection({ setItems, type, isVisible, setIsVisible }: FormProps) {
                     )}
                   </Field>
                 ) : null}
-                {type === 'site' ? (
+                {type === 'sites' ? (
                   <Field name='body'>
                     {({ input }) => (
                       <input

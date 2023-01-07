@@ -14,13 +14,22 @@ const initialState = {
 
 const SitesReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionType.ADDSITE:
-      return {
-        ...state,
-        sites: [
-          ...state.sites,
-          { title: action.title, body: action.body, _id: action.title, itemType: action.itemType },
-        ],
+    case ActionType.ADDITEM:
+      if (action.itemType == 'sites') {
+        return {
+          ...state,
+          [action.itemType]: [
+            ...state.sites,
+            {
+              title: action.title,
+              body: action.body,
+              _id: action.title,
+              itemType: action.itemType,
+            },
+          ],
+        }
+      } else {
+        return state
       }
     default:
       return state

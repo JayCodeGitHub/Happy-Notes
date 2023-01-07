@@ -9,7 +9,7 @@ interface CardProps {
 function Card({ type, title, body }: CardProps) {
   return (
     <>
-      {type === 'note' ? (
+      {type === 'notes' ? (
         <div>
           <div className='w-4/5 h-96 border-2 border-green-500 dark:bg-gray-700 bg-white rounded-lg dark:text-white text-black m-auto my-5'>
             <div className=' w-full h-1/5 bg-green-500 p-4 text-2xl'>
@@ -35,7 +35,7 @@ function Card({ type, title, body }: CardProps) {
               <button className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'>
                 REMOVE
               </button>
-              {type === 'site' ? (
+              {type === 'sites' ? (
                 <a target='_blank' href={title} rel='noopener noreferrer'>
                   <button className=' bg-green-500 text-xs w-40 rounded-xl p-2 hover:bg-green-600 duration-100 transition-all ease-in-out'>
                     Go to site

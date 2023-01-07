@@ -14,13 +14,22 @@ const initialState = {
 
 const ToDoReducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionType.ADDTODO:
-      return {
-        ...state,
-        todos: [
-          ...state.todos,
-          { title: action.title, body: action.body, _id: action.title, itemType: action.itemType },
-        ],
+    case ActionType.ADDITEM:
+      if (action.itemType == 'todos') {
+        return {
+          ...state,
+          [action.itemType]: [
+            ...state.todos,
+            {
+              title: action.title,
+              body: action.body,
+              _id: action.title,
+              itemType: action.itemType,
+            },
+          ],
+        }
+      } else {
+        return state
       }
     default:
       return state
