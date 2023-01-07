@@ -12,8 +12,8 @@ function Sites() {
   const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
-      {state.sites.map(({ title, _id }) => (
-        <Card title={title} type='sites' _id={_id} key={title} />
+      {state.sites.map(({ title, _id, itemType }) => (
+        <Card title={title} type={itemType} _id={_id} key={title} />
       ))}
       <AddNewItem setItems={additem} type='sites' />
     </>
