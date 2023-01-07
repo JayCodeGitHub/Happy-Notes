@@ -1,9 +1,17 @@
+import { ActionType } from '../action-types'
+
 interface IAddItemAction {
-  type: 'additem'
+  type: ActionType.ADDITEM
   itemType: string
   _id: string
   title: string
   body: string
 }
 
-export type Action = IAddItemAction
+interface IRemoveItemAction {
+  type: ActionType.REMOVEITEM
+  _id: string
+  itemType: string
+}
+
+export type Action = IAddItemAction | IRemoveItemAction

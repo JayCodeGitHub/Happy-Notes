@@ -12,8 +12,8 @@ function Notes() {
   const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
-      {state.notes.map(({ title, body }) => (
-        <Card title={title} body={body} type='notes' key={title} />
+      {state.notes.map(({ title, body, _id }) => (
+        <Card title={title} body={body} type='notes' _id={_id} key={title} />
       ))}
       <AddNewItem setItems={additem} type='notes' />
     </>

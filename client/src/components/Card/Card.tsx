@@ -1,12 +1,18 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../../state'
 
 interface CardProps {
   type: string
   title: string
   body?: string
+  _id: string
 }
 
-function Card({ type, title, body }: CardProps) {
+function Card({ type, title, body, _id }: CardProps) {
+  const dispatch = useDispatch()
+  const { removeitem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
       {type === 'notes' ? (
@@ -19,7 +25,10 @@ function Card({ type, title, body }: CardProps) {
               <div className='w-full h-full overflow-hidden'>
                 <h2>{body}</h2>
               </div>
-              <button className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'>
+              <button
+                onClick={() => removeitem(_id, type)}
+                className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'
+              >
                 REMOVE
               </button>
             </div>
@@ -32,7 +41,10 @@ function Card({ type, title, body }: CardProps) {
               <h1 className=' overflow-hidden h-2/3'>{title}</h1>
             </div>
             <div className='h-1/2 flex justify-around items-center p-1'>
-              <button className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'>
+              <button
+                onClick={() => removeitem(_id, type)}
+                className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'
+              >
                 REMOVE
               </button>
               {type === 'sites' ? (

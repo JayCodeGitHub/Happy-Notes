@@ -31,6 +31,15 @@ const SitesReducer = (state = initialState, action: Action) => {
       } else {
         return state
       }
+    case ActionType.REMOVEITEM:
+      if (action.itemType == 'sites') {
+        return {
+          ...state,
+          [action.itemType]: [...state.sites.filter((item) => item._id !== action._id)],
+        }
+      } else {
+        return state
+      }
     default:
       return state
   }

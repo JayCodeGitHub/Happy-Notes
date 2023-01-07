@@ -12,8 +12,8 @@ function ToDo() {
   const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
-      {state.todos.map(({ title }) => (
-        <Card title={title} type='todos' key={title} />
+      {state.todos.map(({ title, _id }) => (
+        <Card title={title} type='todos' _id={_id} key={title} />
       ))}
       <AddNewItem setItems={additem} type='todos' />
     </>
