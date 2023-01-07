@@ -40,6 +40,11 @@ const NotesReducer = (state = initialState, action: Action) => {
       } else {
         return state
       }
+    case ActionType.CLEARSTORE:
+      return {
+        ...state,
+        notes: [],
+      }
     default:
       return state
   }

@@ -14,4 +14,8 @@ interface IRemoveItemAction {
   itemType: string
 }
 
-export type Action = IAddItemAction | IRemoveItemAction
+interface IClearStoreAction {
+  type: ActionType.CLEARSTORE
+}
+
+export type Action = IAddItemAction | IRemoveItemAction | IClearStoreAction

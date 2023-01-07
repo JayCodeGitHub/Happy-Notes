@@ -21,3 +21,11 @@ export const removeitem = (_id: string, itemType: string) => {
     })
   }
 }
+
+export const clearstore = () => {
+  return (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.CLEARSTORE,
+    })
+  }
+}

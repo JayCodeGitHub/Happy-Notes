@@ -40,6 +40,11 @@ const SitesReducer = (state = initialState, action: Action) => {
       } else {
         return state
       }
+    case ActionType.CLEARSTORE:
+      return {
+        ...state,
+        sites: [],
+      }
     default:
       return state
   }

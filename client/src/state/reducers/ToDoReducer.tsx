@@ -40,6 +40,11 @@ const ToDoReducer = (state = initialState, action: Action) => {
       } else {
         return state
       }
+    case ActionType.CLEARSTORE:
+      return {
+        ...state,
+        todos: [],
+      }
     default:
       return state
   }

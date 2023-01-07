@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import MainTemplate from '../templates/MainTemplate'
 import Notes from './Notes'
 import ToDo from './ToDo'
 import Sites from './Sites'
+import { useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actionCreators } from '../state'
 
 function Root() {
+  const dispatch = useDispatch()
+  const { clearstore } = bindActionCreators(actionCreators, dispatch)
+  useEffect(() => {
+    clearstore()
+  })
   return (
     <MainTemplate>
       <Routes>
