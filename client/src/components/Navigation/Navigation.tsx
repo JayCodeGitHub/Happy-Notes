@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import NavLink from '../NavLink/NavLink'
 import Hamburger from '../Hamburger/Hamburger'
 import MobileMenu from '../MobileMenu/MobileMenu'
+import { useHamburger } from '../../hooks/useHamburger/useHamburger'
 
 const menuItems = [
   { name: 'Notes', href: '/notes' },
@@ -11,7 +12,7 @@ const menuItems = [
 ]
 
 function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+  const { isOpen, toggleNavigation, setIsOpenFalse } = useHamburger()
   return (
     <div className='w-full h-20 overflow-hidden dark:text-white text-black dark:bg-gray-800 bg-white flex justify-between px-6 border-b-2 dark:border-white border-black'>
       <div className=' w-52 flex justify-center items-center'>
@@ -31,9 +32,9 @@ function Navigation() {
         </div>
         <div className='md:hidden'>
           <div className='relative z-20'>
-            <Hamburger isOpen={isOpen} setIsOpen={setIsOpen} />
+            <Hamburger isOpen={isOpen} toggleNavigation={toggleNavigation} />
           </div>
-          <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+          <MobileMenu isOpen={isOpen} setIsOpenFalse={setIsOpenFalse} />
         </div>
       </div>
     </div>

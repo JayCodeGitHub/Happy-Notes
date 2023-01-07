@@ -15,10 +15,10 @@ const variants = {
 
 interface MobileMenuProps {
   isOpen: boolean
-  setIsOpen: any
+  setIsOpenFalse: any
 }
 
-function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
+function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {
   const shouldReduceMotion = useReducedMotion()
   const transition = shouldReduceMotion ? { duration: 0 } : {}
   let state = 'closed'
@@ -36,7 +36,7 @@ function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     >
       <div className='w-full h-48 flex flex-col items-center justify-around'>
         {menuItems.map((item) => (
-          <NavLink to={item.href} key={item.name} onClick={() => setIsOpen(false)}>
+          <NavLink to={item.href} key={item.name} onClick={setIsOpenFalse}>
             {item.name}
           </NavLink>
         ))}
