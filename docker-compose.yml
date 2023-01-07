@@ -10,4 +10,13 @@ services:
       - "./client:/app"
       - "./client/node_modules:/src/node_modules"
     stdin_open: true
-  
+  server:
+    container_name: server-container
+    environment:
+      PORT: 8080
+    build: ./server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/src
+      - ./server/node_modules:/src/node_modules
