@@ -1,12 +1,12 @@
 const express = require('express');
+const Router = require('./src/routes/index')
+
 const app = express();
 
-app.get('/', function(req, res) {
-    res.json({
-        'status': 'Success!'
-    });
-});
+app.use('/', Router)
 
-app.listen(8080, function() {
-    console.log('Listening!');
+const port = 8080
+
+app.listen(port, function() {
+    console.log(`App listening at http://localhost:${port}`);
 })
