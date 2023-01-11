@@ -8,7 +8,7 @@ import { actionCreators } from '../state'
 
 function Sites() {
   const dispatch = useDispatch()
-  const state = useSelector((state: State) => state.sites)
+  const state = useSelector((state: State) => state)
   const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>

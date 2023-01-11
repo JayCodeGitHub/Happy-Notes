@@ -8,7 +8,7 @@ import { actionCreators } from '../state'
 
 function Notes() {
   const dispatch = useDispatch()
-  const state = useSelector((state: State) => state.notes)
+  const state = useSelector((state: State) => state)
   const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>

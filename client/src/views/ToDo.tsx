@@ -8,7 +8,7 @@ import { actionCreators } from '../state'
 
 function ToDo() {
   const dispatch = useDispatch()
-  const state = useSelector((state: State) => state.todos)
+  const state = useSelector((state: State) => state)
   const { additem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
