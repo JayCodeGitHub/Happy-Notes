@@ -1,19 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Router = require('./src/routes/index')
+const noteRouter = require('./src/routes/index')
+const Note = require('./src/models/note');
 
 const app = express();
 
-app.use('/', Router)
+app.use('/api/note', noteRouter)
 
 
 
 mongoose.connect('mongodb://127.0.0.1:27017', { useNewUrlParser: true, useUnifiedTopology: true});
 
-const Cat = mongoose.model('Cat', { name: String });
-
-const kitty = new Cat({ name: 'Zildjian' });
-kitty.save().then(() => console.log('meow'));
+const test = new Note({ title: 'test', body: 'test', itemType: 'notes' });
+test.save().then(() => console.log('test'));
 
 const port = 8080
 
