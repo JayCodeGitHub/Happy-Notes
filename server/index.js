@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const noteRouter = require('./src/routes/index')
+const noteRouter = require('./src/routes/note')
 const Note = require('./src/models/note');
 
 const app = express();
