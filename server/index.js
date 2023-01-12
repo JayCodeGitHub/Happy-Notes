@@ -1,15 +1,17 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const noteRouter = require('./src/routes/index')
 const Note = require('./src/models/note');
 
 const app = express();
+app.use(cors());
 
 app.use('/api/note', noteRouter)
 
 
 
-mongoose.connect('mongodb://127.0.0.1:27017', { useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://mongo:27017/HappyNotes', { useNewUrlParser: true, useUnifiedTopology: true});
 
 const test = new Note({ title: 'test', body: 'test', itemType: 'notes' });
 test.save().then(() => console.log('test'));
