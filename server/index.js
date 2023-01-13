@@ -15,8 +15,6 @@ app.use('/api/note', noteRouter)
 
 mongoose.connect('mongodb://mongo:27017/HappyNotes', { useNewUrlParser: true, useUnifiedTopology: true});
 
-const test = new Note({ title: 'test', body: 'test', itemType: 'notes' });
-test.save().then(() => console.log('test'));
 
 const port = 8080
 
