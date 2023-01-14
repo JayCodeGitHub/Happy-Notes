@@ -12,7 +12,7 @@ interface CardProps {
 
 function Card({ type, title, body, _id }: CardProps) {
   const dispatch = useDispatch()
-  const { removeitem } = bindActionCreators(actionCreators, dispatch)
+  const { removeItem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
       {type === 'notes' ? (
@@ -26,7 +26,7 @@ function Card({ type, title, body, _id }: CardProps) {
                 <h2>{body}</h2>
               </div>
               <button
-                onClick={() => removeitem(_id, type)}
+                onClick={() => removeItem(_id, type)}
                 className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'
               >
                 REMOVE
@@ -42,7 +42,7 @@ function Card({ type, title, body, _id }: CardProps) {
             </div>
             <div className='h-1/2 flex justify-around items-center p-1'>
               <button
-                onClick={() => removeitem(_id, type)}
+                onClick={() => removeItem(_id, type)}
                 className=' bg-gray-400 rounded-xl p-2 text-xs w-24 hover:bg-gray-500 duration-100 transition-all ease-in-out'
               >
                 REMOVE

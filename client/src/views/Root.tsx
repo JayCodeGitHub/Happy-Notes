@@ -10,9 +10,9 @@ import { actionCreators } from '../state'
 
 function Root() {
   const dispatch = useDispatch()
-  const { fetchitems } = bindActionCreators(actionCreators, dispatch)
+  const { fetchItems } = bindActionCreators(actionCreators, dispatch)
   useEffect(() => {
-    fetchitems()
+    fetchItems()
   })
   return (
     <MainTemplate>

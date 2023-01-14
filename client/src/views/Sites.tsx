@@ -9,13 +9,13 @@ import { actionCreators } from '../state'
 function Sites() {
   const dispatch = useDispatch()
   const state = useSelector((state: State) => state)
-  const { additem } = bindActionCreators(actionCreators, dispatch)
+  const { addItem } = bindActionCreators(actionCreators, dispatch)
   return (
     <>
       {state.sites.map(({ title, _id, itemType }) => (
         <Card title={title} type={itemType} _id={_id} key={title} />
       ))}
-      <AddNewItem setItems={additem} type='sites' />
+      <AddNewItem setItems={addItem} type='sites' />
     </>
   )
 }

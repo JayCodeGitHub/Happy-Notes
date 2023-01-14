@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Dispatch } from 'redux'
 import { ActionType } from '../action-types'
 
-export const additem = (itemType: string, title: string, body?: string) => {
+export const addItem = (itemType: string, title: string, body?: string) => {
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.post('http://localhost:8080/api/note', {
@@ -24,7 +24,7 @@ export const additem = (itemType: string, title: string, body?: string) => {
   }
 }
 
-export const removeitem = (_id: string, itemType: string) => {
+export const removeItem = (_id: string, itemType: string) => {
   return async (dispatch: Dispatch) => {
     try {
       await axios.delete(`http://localhost:8080/api/note/${_id}`)
@@ -39,7 +39,7 @@ export const removeitem = (_id: string, itemType: string) => {
   }
 }
 
-export const fetchitems = () => {
+export const fetchItems = () => {
   return async (dispatch: Dispatch) => {
     try {
       const responseNotes = await axios.get('http://localhost:8080/api/note/notes')
