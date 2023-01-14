@@ -2,7 +2,16 @@ const Note = require('../models/note');
 
 class NoteController {
     async getAllNotes(req, res) {
-        res.status(200).json("allNotes");
+        let doc;
+
+        const itemType = req.params.itemType
+
+        try {
+            doc = await Note.find({ itemType: itemType});
+        } catch(err) {
+            res.status(500).json({message: err.message});
+        }
+        res.status(200).json(doc);
 
     }
     async saveNote(req, res) {
