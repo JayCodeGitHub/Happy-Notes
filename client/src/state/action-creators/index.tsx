@@ -39,10 +39,23 @@ export const removeitem = (_id: string, itemType: string) => {
   }
 }
 
-export const clearstore = () => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.CLEARSTORE,
-    })
+export const fetchitems = () => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const responseNotes = await axios.get('http://localhost:8080/api/note/notes')
+      const notes = responseNotes.data
+      const responseTodos = await axios.get('http://localhost:8080/api/note/todos')
+      const todos = responseTodos.data
+      const responseSites = await axios.get('http://localhost:8080/api/note/sites')
+      const sites = responseSites.data
+      dispatch({
+        type: ActionType.FETCHITEMS,
+        notes,
+        todos,
+        sites,
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 }

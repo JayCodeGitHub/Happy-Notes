@@ -10,9 +10,9 @@ import { actionCreators } from '../state'
 
 function Root() {
   const dispatch = useDispatch()
-  const { clearstore } = bindActionCreators(actionCreators, dispatch)
+  const { fetchitems } = bindActionCreators(actionCreators, dispatch)
   useEffect(() => {
-    clearstore()
+    fetchitems()
   })
   return (
     <MainTemplate>
