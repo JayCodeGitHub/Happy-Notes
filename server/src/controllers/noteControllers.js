@@ -23,8 +23,8 @@ class NoteController {
     }
     async deleteNote(req, res) {
         try {
-            const id = req.params.id;
-            await Note.deleteOne({_id: id});
+            const _id = req.params._id;
+            await Note.deleteOne({_id: _id});
         } catch(err) {
             return res.status(422).json({message: err.message});
         }
