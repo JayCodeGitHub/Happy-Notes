@@ -22,7 +22,13 @@ class NoteController {
         res.status(201).json(note)
     }
     async deleteNote(req, res) {
-        res.status(201).json("deleteNote")
+        try {
+            const id = req.params.id;
+            await Note.deleteOne({_id: id});
+        } catch(err) {
+            return res.status(422).json({message: err.message});
+        }
+        res.sendStatus(204)
     }
 }
 
