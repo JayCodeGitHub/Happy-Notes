@@ -15,7 +15,7 @@ function FormSection({ setItems, type, isVisible, setIsVisible }: FormProps) {
         <div className='w-3/4 md:w-2/5 p-4 fixed top-1/3 md:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:bg-gray-800 bg-gray-200 rounded-lg border-2 border-green-500 flex flex-col justify-center items-center'>
           <Form
             onSubmit={(formObj) => {
-              setItems(formObj.title, type, formObj.body)
+              setItems(type, formObj.title, formObj.body)
               formObj.title = ''
               formObj.body = ''
               setIsVisible(false)
