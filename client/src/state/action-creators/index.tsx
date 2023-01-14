@@ -25,12 +25,17 @@ export const additem = (itemType: string, title: string, body?: string) => {
 }
 
 export const removeitem = (_id: string, itemType: string) => {
-  return (dispatch: Dispatch) => {
-    dispatch({
-      type: ActionType.REMOVEITEM,
-      _id,
-      itemType,
-    })
+  return async (dispatch: Dispatch) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/note/${_id}`)
+      dispatch({
+        type: ActionType.REMOVEITEM,
+        _id,
+        itemType,
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 }
 
