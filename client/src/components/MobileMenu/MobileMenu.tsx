@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import NavLink from '../NavLink/NavLink'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
+import LogOutButton from '../LogOutButton/LogOutButton'
 
 const variants = {
   open: { x: 0, display: 'flex' },
@@ -40,6 +41,9 @@ function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {
       <div>
         <div className=' w-full h-28 flex items-center justify-center'>
           <DarkModeToggle />
+        </div>
+        <div className=' w-full h-28 flex items-center justify-center'>
+          <LogOutButton />
         </div>
       </div>
     </motion.div>

@@ -6,6 +6,7 @@ import MobileMenu from '../MobileMenu/MobileMenu'
 import { useHamburger } from '../../hooks/useHamburger'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
+import LogOutButton from '../LogOutButton/LogOutButton'
 
 function Navigation() {
   const { isOpen, toggleNavigation, setIsOpenFalse } = useHamburger()
@@ -32,9 +33,12 @@ function Navigation() {
           </div>
           <MobileMenu isOpen={isOpen} setIsOpenFalse={setIsOpenFalse} />
         </div>
-        <div className='md:flex hidden h-full'>
+        <div className='md:flex w-40 hidden h-full'>
           <div className=' w-1/2 h-full flex items-center justify-center'>
             <DarkModeToggle />
+          </div>
+          <div className='w-1/2 h-full flex items-center justify-center'>
+            <LogOutButton />
           </div>
         </div>
       </div>
