@@ -4,7 +4,13 @@ interface AppProvidersProps {
   children: React.ReactNode
 }
 
-const AuthContext = React.createContext({} as any)
+interface AuthContextProps {
+  user: boolean
+  logIn: () => void
+  logOut: () => void
+}
+
+const AuthContext = React.createContext<AuthContextProps>({} as AuthContextProps)
 
 export const AuthProvider = ({ children }: AppProvidersProps) => {
   const [user, setUser] = useState(false)
