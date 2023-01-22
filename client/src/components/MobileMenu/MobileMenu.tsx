@@ -4,18 +4,15 @@ import NavLink from '../NavLink/NavLink'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import LogOutButton from '../LogOutButton/LogOutButton'
+import { useHamburger } from '../../hooks/useHamburger'
 
 const variants = {
   open: { x: 0, display: 'flex' },
   closed: { x: '100%', display: 'none' },
 }
 
-interface MobileMenuProps {
-  isOpen: boolean
-  setIsOpenFalse: () => void
-}
-
-function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {
+function MobileMenu() {
+  const { isOpen, toggleIsOpen } = useHamburger()
   const shouldReduceMotion = useReducedMotion()
   const transition = shouldReduceMotion ? { duration: 0 } : {}
   let state = 'closed'
@@ -33,7 +30,7 @@ function MobileMenu({ isOpen, setIsOpenFalse }: MobileMenuProps) {
     >
       <div className='w-full h-48 flex flex-col items-center justify-around'>
         {NavigationItems.map((item) => (
-          <NavLink to={item.href} key={item.name} onClick={setIsOpenFalse}>
+          <NavLink to={item.href} key={item.name} onClick={toggleIsOpen}>
             {item.name}
           </NavLink>
         ))}

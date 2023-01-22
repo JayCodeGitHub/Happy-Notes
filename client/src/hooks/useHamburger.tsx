@@ -1,12 +1,35 @@
-import { useState } from 'react'
+import React, { useContext, useState } from 'react'
 
-export function useHamburger() {
+interface HamburgerProviderProps {
+  children: React.ReactNode
+}
+
+interface HamburgerContextProps {
+  isOpen: boolean
+  toggleIsOpen: () => void
+  setIsOpenFalse: () => void
+}
+
+const HamburgerContext = React.createContext<HamburgerContextProps>({} as HamburgerContextProps)
+
+export const HamburgerProvider = ({ children }: HamburgerProviderProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const toggleNavigation = () => {
+  const toggleIsOpen = () => {
     setIsOpen(!isOpen)
   }
   const setIsOpenFalse = () => {
     setIsOpen(false)
   }
-  return { isOpen, toggleNavigation, setIsOpenFalse }
+
+  return (
+    <HamburgerContext.Provider value={{ isOpen, toggleIsOpen, setIsOpenFalse }}>
+      {children}
+    </HamburgerContext.Provider>
+  )
+}
+
+export function useHamburger() {
+  const hamburger = useContext(HamburgerContext)
+
+  return hamburger
 }

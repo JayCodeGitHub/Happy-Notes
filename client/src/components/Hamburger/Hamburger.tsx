@@ -1,12 +1,9 @@
 import React from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
+import { useHamburger } from '../../hooks/useHamburger'
 
-interface HamburgerProps {
-  isOpen: boolean
-  toggleNavigation: () => void
-}
-
-function Hamburger({ isOpen, toggleNavigation }: HamburgerProps) {
+function Hamburger() {
+  const { isOpen, toggleIsOpen } = useHamburger()
   const shouldReduceMotion = useReducedMotion()
   const transition = shouldReduceMotion ? { duration: 0 } : {}
   let state = 'closed'
@@ -32,7 +29,7 @@ function Hamburger({ isOpen, toggleNavigation }: HamburgerProps) {
   return (
     <>
       <button
-        onClick={toggleNavigation}
+        onClick={toggleIsOpen}
         className='focus:border-primary hover:border-primary border-secondary dark:text-white text-black inline-flex items-center justify-center p-1 w-14 h-14 focus:outline-none transition'
       >
         <svg

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 
-interface AppProvidersProps {
+interface AuthProviderProps {
   children: React.ReactNode
 }
 
@@ -13,7 +13,7 @@ interface AuthContextProps {
 
 const AuthContext = React.createContext<AuthContextProps>({} as AuthContextProps)
 
-export const AuthProvider = ({ children }: AppProvidersProps) => {
+export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState(false)
 
   const logIn = async () => {
