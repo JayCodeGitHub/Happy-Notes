@@ -13,6 +13,7 @@ services:
   server:
     container_name: server-container
     environment:
+      TOKEN_SECRET: afbneofjbnouefwrwr
       PORT: 8080
     build: ./server
     ports:

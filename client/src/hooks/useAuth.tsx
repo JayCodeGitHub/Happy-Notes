@@ -6,8 +6,8 @@ interface AuthProviderProps {
 }
 
 interface AuthContextProps {
-  user: boolean
-  logIn: () => void
+  user: string | null
+  logIn: (email: string, password: string) => void
   logOut: () => void
   register: (email: string, password: string) => void
 }
@@ -15,28 +15,38 @@ interface AuthContextProps {
 const AuthContext = React.createContext<AuthContextProps>({} as AuthContextProps)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user, setUser] = useState(false)
+  const [user, setUser] = useState<string | null>(null)
 
-  const logIn = async () => {
-    setUser(true)
-  }
-
-  const logOut = () => {
-    setUser(false)
-  }
-
-  const register = async (email: string, password: string) => {
+  const logIn = async (email: string, password: string) => {
     try {
-      await axios.post('http://localhost:8080/api/auth/register/', {
+      const response = await axios.post('http://localhost:8080/api/auth/login/', {
         email,
         password,
       })
-      setUser(true)
+      setUser(response.data)
+      localStorage.setItem('token', response.data)
     } catch (err) {
       console.log(err)
     }
   }
 
+  const register = async (email: string, password: string) => {
+    try {
+      const response = await axios.post('http://localhost:8080/api/auth/register/', {
+        email,
+        password,
+      })
+      setUser(response.data)
+      localStorage.setItem('token', response.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const logOut = () => {
+    setUser(null)
+    localStorage.removeItem('token')
+  }
   return (
     <AuthContext.Provider value={{ user, logIn, logOut, register }}>
       {children}

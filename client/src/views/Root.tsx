@@ -5,7 +5,7 @@ import UnauthenticatedApp from './UnauthenticatedApp'
 
 function Root() {
   const { user } = useAuth()
-  return <>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</>
+  return <>{user != null ? <AuthenticatedApp /> : <UnauthenticatedApp />}</>
 }
 
 export default Root
