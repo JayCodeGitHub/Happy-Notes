@@ -4,10 +4,9 @@ class NoteController {
     async getAllNotes(req, res) {
         let doc;
 
-        const itemType = req.params.itemType
 
         try {
-            doc = await Note.find({ itemType: itemType});
+            doc = await Note.find();
         } catch(err) {
             res.status(500).json({message: err.message});
         }

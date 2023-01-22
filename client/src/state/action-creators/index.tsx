@@ -42,12 +42,10 @@ export const removeItem = (_id: string, itemType: string) => {
 export const fetchItems = () => {
   return async (dispatch: Dispatch) => {
     try {
-      const responseNotes = await axios.get('http://localhost:8080/api/note/notes')
-      const notes = responseNotes.data
-      const responseTodos = await axios.get('http://localhost:8080/api/note/todos')
-      const todos = responseTodos.data
-      const responseSites = await axios.get('http://localhost:8080/api/note/sites')
-      const sites = responseSites.data
+      const response = await axios.get('http://localhost:8080/api/note/')
+      const notes = response.data.filter((item: { itemType: string }) => item.itemType == 'notes')
+      const todos = response.data.filter((item: { itemType: string }) => item.itemType == 'todos')
+      const sites = response.data.filter((item: { itemType: string }) => item.itemType == 'sites')
       dispatch({
         type: ActionType.FETCHITEMS,
         notes,
