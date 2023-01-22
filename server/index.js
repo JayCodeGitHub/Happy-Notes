@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const noteRouter = require('./src/routes/note')
-const Note = require('./src/models/note');
+const userRouter = require('./src/routes/user')
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/api/note', noteRouter)
+app.use('/api/user', userRouter)
 
 
 
