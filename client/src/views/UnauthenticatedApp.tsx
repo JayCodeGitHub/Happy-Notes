@@ -13,8 +13,8 @@ function UnauthenticatedApp() {
         <div className=' w-72 h-96 bg-blue-50 rounded-lg border-2 border-green-500'>
           <div className='w-full h-full  flex flex-col items-center justify-around '>
             <Form
-              onSubmit={() => {
-                register()
+              onSubmit={(formObj) => {
+                register(formObj.email, formObj.password)
               }}
               render={({ handleSubmit }) => (
                 <form
@@ -31,7 +31,7 @@ function UnauthenticatedApp() {
                       {({ input }) => (
                         <input
                           placeholder='password'
-                          type='text'
+                          type='password'
                           className='w-4/5 mb-2'
                           {...input}
                         />
@@ -77,7 +77,7 @@ function UnauthenticatedApp() {
                       {({ input }) => (
                         <input
                           placeholder='password'
-                          type='text'
+                          type='password'
                           className='w-4/5 mb-2'
                           {...input}
                         />
