@@ -8,6 +8,7 @@ interface AuthContextProps {
   user: boolean
   logIn: () => void
   logOut: () => void
+  register: () => void
 }
 
 const AuthContext = React.createContext<AuthContextProps>({} as AuthContextProps)
@@ -17,14 +18,21 @@ export const AuthProvider = ({ children }: AppProvidersProps) => {
 
   const logIn = async () => {
     setUser(true)
-    console.log(user)
   }
 
   const logOut = () => {
     setUser(false)
   }
 
-  return <AuthContext.Provider value={{ user, logIn, logOut }}>{children}</AuthContext.Provider>
+  const register = () => {
+    setUser(true)
+  }
+
+  return (
+    <AuthContext.Provider value={{ user, logIn, logOut, register }}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
 export const useAuth = () => {
