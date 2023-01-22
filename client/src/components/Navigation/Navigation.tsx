@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom'
 import NavLink from '../NavLink/NavLink'
 import Hamburger from '../Hamburger/Hamburger'
 import MobileMenu from '../MobileMenu/MobileMenu'
-import { useHamburger } from '../../hooks/useHamburger'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import LogOutButton from '../LogOutButton/LogOutButton'
 
 function Navigation() {
-  const { isOpen, toggleNavigation, setIsOpenFalse } = useHamburger()
   return (
     <div className='w-full h-20 overflow-hidden dark:text-white text-black dark:bg-gray-800 bg-white flex justify-between px-6 border-b-2 dark:border-white border-black'>
       <div className=' w-52 flex justify-center items-center'>
@@ -29,9 +27,9 @@ function Navigation() {
         </div>
         <div className='md:hidden'>
           <div className='relative z-20'>
-            <Hamburger isOpen={isOpen} toggleNavigation={toggleNavigation} />
+            <Hamburger />
           </div>
-          <MobileMenu isOpen={isOpen} setIsOpenFalse={setIsOpenFalse} />
+          <MobileMenu />
         </div>
         <div className='md:flex w-40 hidden h-full'>
           <div className=' w-1/2 h-full flex items-center justify-center'>
