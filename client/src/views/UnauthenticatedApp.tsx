@@ -17,7 +17,10 @@ function UnauthenticatedApp() {
                 register()
               }}
               render={({ handleSubmit }) => (
-                <form className='w-full h-1/3 flex justify-around items-center flex-col'>
+                <form
+                  onSubmit={handleSubmit}
+                  className='w-full h-1/3 flex justify-around items-center flex-col'
+                >
                   <div className='w-full flex justify-center items-center flex-col'>
                     <Field name='email'>
                       {({ input }) => (
@@ -60,7 +63,10 @@ function UnauthenticatedApp() {
                 logIn()
               }}
               render={({ handleSubmit }) => (
-                <form className='w-full h-1/3 flex justify-around items-center flex-col'>
+                <form
+                  onSubmit={handleSubmit}
+                  className='w-full h-1/3 flex justify-around items-center flex-col'
+                >
                   <div className='w-full flex justify-center items-center flex-col'>
                     <Field name='email'>
                       {({ input }) => (
