@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
+import { useError } from './useError'
 
 interface AuthProviderProps {
   children: React.ReactNode
@@ -16,6 +17,7 @@ const AuthContext = React.createContext<AuthContextProps>({} as AuthContextProps
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<string | null>(null)
+  const { dispatchError } = useError()
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -28,8 +30,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             },
           })
           setUser(response.data)
-        } catch (e) {
-          console.log(e)
+        } catch (err) {
+          dispatchError(err.response.data)
         }
       })()
     }
@@ -44,7 +46,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setUser(response.data)
       localStorage.setItem('token', response.data)
     } catch (err) {
-      console.log(err)
+      dispatchError(err.response.data)
     }
   }
 
@@ -57,7 +59,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       setUser(response.data)
       localStorage.setItem('token', response.data)
     } catch (err) {
-      console.log(err)
+      dispatchError(err.response.data)
     }
   }
 

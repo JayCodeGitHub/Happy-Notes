@@ -20,6 +20,7 @@ export const addItem = (itemType: string, title: string, body?: string) => {
         type: ActionType.ADDITEM,
         _id,
         itemType,
+        creator,
         title,
         body,
       })
