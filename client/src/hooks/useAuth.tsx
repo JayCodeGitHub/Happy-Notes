@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 
 interface AuthProviderProps {
@@ -16,6 +16,24 @@ const AuthContext = React.createContext<AuthContextProps>({} as AuthContextProps
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<string | null>(null)
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      ;(async () => {
+        try {
+          const response = await axios.get('http://localhost:8080/api/auth/me/', {
+            headers: {
+              authorization: token,
+            },
+          })
+          setUser(response.data)
+        } catch (e) {
+          console.log(e)
+        }
+      })()
+    }
+  }, [])
 
   const logIn = async (email: string, password: string) => {
     try {

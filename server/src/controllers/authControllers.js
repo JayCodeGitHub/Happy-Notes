@@ -43,7 +43,15 @@ class AuthController {
 
         res.header('auth-token',token).send(token);
     }
-    
+    async token(req, res){
+        const token = req.header('authorization');
+        let decoded = jwt.decode(token);
+        let creator = decoded.email
+
+        const newToken = jwt.sign({_id: creator}, process.env.TOKEN_SECRET);
+
+        res.status(200).send(newToken);
+    }
 }
 
 module.exports = new AuthController();

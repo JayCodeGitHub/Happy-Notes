@@ -1,12 +1,16 @@
+const jwt = require('jsonwebtoken');
 const Note = require('../models/note');
 
 class NoteController {
     async getAllNotes(req, res) {
         let doc;
 
+        const token = req.header('authorization');
+        let decoded = jwt.decode(token);
+        let creator = decoded._id
 
         try {
-            doc = await Note.find();
+            doc = await Note.find({ creator: creator});
         } catch(err) {
             res.status(500).json({message: err.message});
         }
@@ -17,11 +21,14 @@ class NoteController {
         const itemType = req.body.itemType;
         const title = req.body.title;
         const body = req.body.body;
+        const token = req.body.creator;
+        let decoded = jwt.decode(token);
+        let creator = decoded._id
 
         let note;
 
         try {
-            note = new Note({itemType, title, body})
+            note = new Note({itemType, creator, title, body})
             await note.save();
         } catch(err) {
             return res.status(422).json({message: err.message});

@@ -38,6 +38,7 @@ const Reducer = (state = initialState, action: Action) => {
           {
             _id: action._id,
             itemType: action.itemType,
+            creator: action.creator,
             title: action.title,
             body: action.body,
           },

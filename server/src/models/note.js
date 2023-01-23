@@ -7,6 +7,12 @@ const NoteSchema = new mongoose.Schema({
         min: 2,
         max: 255,
     },
+    creator: {
+        type: 'String',
+        require: true,
+        min: 6,
+        max: 255,
+    },
     title: {
         type: 'String',
         require: true,

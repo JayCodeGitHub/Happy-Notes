@@ -3,10 +3,15 @@ import { Dispatch } from 'redux'
 import { ActionType } from '../action-types'
 
 export const addItem = (itemType: string, title: string, body?: string) => {
+  const creator = localStorage.getItem('token')
   return async (dispatch: Dispatch) => {
     try {
       const response = await axios.post('http://localhost:8080/api/note', {
+        headers: {
+          authorization: creator,
+        },
         itemType,
+        creator,
         title,
         body,
       })
@@ -40,9 +45,14 @@ export const removeItem = (_id: string, itemType: string) => {
 }
 
 export const fetchItems = () => {
+  const creator = localStorage.getItem('token')
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.get('http://localhost:8080/api/note/')
+      const response = await axios.get('http://localhost:8080/api/note/', {
+        headers: {
+          authorization: creator,
+        },
+      })
       const notes = response.data.filter((item: { itemType: string }) => item.itemType == 'notes')
       const todos = response.data.filter((item: { itemType: string }) => item.itemType == 'todos')
       const sites = response.data.filter((item: { itemType: string }) => item.itemType == 'sites')
