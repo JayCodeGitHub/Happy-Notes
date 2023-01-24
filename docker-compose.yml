@@ -4,27 +4,26 @@ services:
   client:
     container_name: client-container
     environment:
-      REACT_APP_API_URL: http://localhost:8080
+      REACT_APP_API_URL: ${REACT_APP_API_URL}
     build: ./client
     ports:
-      - "3000:3000"
+      - ${CLIENT_PORT_DOCKER}
     volumes:
       - "./client:/app"
-      - "./client/node_modules:/src/node_modules"
     stdin_open: true
   server:
     container_name: server-container
     environment:
-      DB_CONNECT: mongodb://mongo:27017/HappyNotes
-      TOKEN_SECRET: afbneofjbnouefnvijsdfnbvweruin
-      PORT: 8080
+      DB_CONNECT: ${DB_CONNECT}
+      TOKEN_SECRET: ${TOKEN_SECRET}
+      PORT: ${SERVER_PORT}
     build: ./server
     ports:
-      - "8080:8080"
+      - ${SERVER_PORT_DOCKER}
     volumes:
       - ./server:/src
-      - ./server/node_modules:/src/node_modules
   mongo:
     image: mongo
     ports:
-      - "27017:27017"
+      - ${DATABASE_PORT_DOCKER}
+      
