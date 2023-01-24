@@ -48,7 +48,7 @@ function Card({ type, title, body, _id }: CardProps) {
                 REMOVE
               </button>
               {type === 'sites' ? (
-                <a target='_blank' href={title} rel='noopener noreferrer'>
+                <a target='_blank' href={body} rel='noopener noreferrer'>
                   <button className=' bg-green-500 text-xs w-40 rounded-xl p-2 hover:bg-green-600 duration-100 transition-all ease-in-out'>
                     Go to site
                   </button>
