@@ -19,7 +19,7 @@ class AuthController {
 
         //Checking is email and password has at least 6 characters
         if(email.length < 6 || password.length < 6){
-            return res.status(400).send("Email and Password have to haveat least 6 characters");
+            return res.status(400).send("Email and Password have to have at least 6 characters");
         }
  
          //HASH THE PASSWORD
