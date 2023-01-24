@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     if (token) {
       ;(async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/auth/me/', {
+          const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/me/`, {
             headers: {
               authorization: token,
             },
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const logIn = async (email: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login/', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login/`, {
         email,
         password,
       })
@@ -52,7 +52,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const register = async (email: string, password: string) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/register/', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register/`, {
         email,
         password,
       })

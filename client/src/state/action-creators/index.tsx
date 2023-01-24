@@ -6,7 +6,7 @@ export const addItem = (itemType: string, title: string, body?: string) => {
   const creator = localStorage.getItem('token')
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.post('http://localhost:8080/api/note', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/note`, {
         headers: {
           authorization: creator,
         },
@@ -33,7 +33,7 @@ export const addItem = (itemType: string, title: string, body?: string) => {
 export const removeItem = (_id: string, itemType: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      await axios.delete(`http://localhost:8080/api/note/${_id}`)
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/note/${_id}`)
       dispatch({
         type: ActionType.REMOVEITEM,
         _id,
@@ -49,7 +49,7 @@ export const fetchItems = () => {
   const creator = localStorage.getItem('token')
   return async (dispatch: Dispatch) => {
     try {
-      const response = await axios.get('http://localhost:8080/api/note/', {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/note/`, {
         headers: {
           authorization: creator,
         },
