@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ErrorProvider } from '../hooks/useError'
 import { AuthProvider } from '../hooks/useAuth'
 import { HamburgerProvider } from '../hooks/useHamburger'
+import SEO from '../components/SEO/SEO'
 
 interface AppProvidersProps {
   children: React.ReactNode
@@ -16,7 +17,10 @@ const AppProviders = ({ children }: AppProvidersProps) => {
       <BrowserRouter>
         <ErrorProvider>
           <AuthProvider>
-            <HamburgerProvider>{children}</HamburgerProvider>
+            <HamburgerProvider>
+              <SEO />
+              {children}
+            </HamburgerProvider>
           </AuthProvider>
         </ErrorProvider>
       </BrowserRouter>
