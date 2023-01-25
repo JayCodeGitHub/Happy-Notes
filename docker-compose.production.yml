@@ -8,8 +8,6 @@ services:
     build: ./client
     ports:
       - ${CLIENT_PORT_DOCKER}
-    volumes:
-      - "./client:/app"
     stdin_open: true
   server:
     container_name: server-container
@@ -20,8 +18,6 @@ services:
     build: ./server
     ports:
       - ${SERVER_PORT_DOCKER}
-    volumes:
-      - ./server:/src
   mongo:
     image: mongo
     ports:
