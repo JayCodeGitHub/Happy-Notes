@@ -11,7 +11,7 @@ The notes are stored in a database and are uploaded via rest api. I decided to u
 
 # Build the application in your local environment
 
-- `docker compose --env-file ./.env-example up --build`
+- `docker compose -f docker-compose.dev.yml up --build`  OR  `make dev`
 
 ## Screenshots
 ![Happy Notes](https://user-images.githubusercontent.com/66550003/214411454-9766aef2-5a4f-4bd8-b9e0-5ff623ccb89a.png)
