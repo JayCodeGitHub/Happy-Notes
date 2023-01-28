@@ -28,7 +28,6 @@ make dev
  ## Preview ##
 ![Happy Notes](https://user-images.githubusercontent.com/66550003/214411454-9766aef2-5a4f-4bd8-b9e0-5ff623ccb89a.png)
 
-![Happy Notes Mobile](https://user-images.githubusercontent.com/66550003/214419232-7497b9d7-2c2d-425c-8e2c-2c051de36c41.png)
-
-![Happy Notes Mobile Menu](https://user-images.githubusercontent.com/66550003/214419244-2fc26d68-cca0-466f-b144-bc99882a3fc7.png)
+<img align="left" src="https://user-images.githubusercontent.com/66550003/214419232-7497b9d7-2c2d-425c-8e2c-2c051de36c41.png"/>
+<img align="left" src="https://user-images.githubusercontent.com/66550003/214419244-2fc26d68-cca0-466f-b144-bc99882a3fc7.png"/>
 
