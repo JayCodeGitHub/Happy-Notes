@@ -6,6 +6,7 @@ import MobileMenu from '../MobileMenu/MobileMenu'
 import { NavigationItems } from '../../assets/items/NavigationItems/NavigationItems'
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import LogOutButton from '../LogOutButton/LogOutButton'
+import GitHubButton from '../GitHubButton/GitHubButton'
 
 function Navigation() {
   return (
@@ -31,9 +32,12 @@ function Navigation() {
           </div>
           <MobileMenu />
         </div>
-        <div className='md:flex w-40 hidden h-full'>
+        <div className='md:flex w-56 hidden h-full'>
           <div className=' w-1/2 h-full flex items-center justify-center'>
             <DarkModeToggle />
+          </div>
+          <div className=' w-1/2 h-full flex items-center justify-center'>
+            <GitHubButton />
           </div>
           <div className='w-1/2 h-full flex items-center justify-center'>
             <LogOutButton />

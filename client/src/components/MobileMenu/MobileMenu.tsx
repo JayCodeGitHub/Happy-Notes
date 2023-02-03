@@ -5,6 +5,7 @@ import { NavigationItems } from '../../assets/items/NavigationItems/NavigationIt
 import DarkModeToggle from '../DarkModeToggle/DarkModeToggle'
 import LogOutButton from '../LogOutButton/LogOutButton'
 import { useHamburger } from '../../hooks/useHamburger'
+import GitHubButton from '../GitHubButton/GitHubButton'
 
 const variants = {
   open: { x: 0, display: 'flex' },
@@ -38,6 +39,9 @@ function MobileMenu() {
       <div>
         <div className=' w-full h-28 flex items-center justify-center'>
           <DarkModeToggle />
+        </div>
+        <div className=' w-full h-28 flex items-center justify-center'>
+          <GitHubButton />
         </div>
         <div className=' w-full h-28 flex items-center justify-center'>
           <LogOutButton />
